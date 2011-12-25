@@ -19,6 +19,9 @@ class datetime(genuine_datetime):
             now_date = klass.__pseudo_date + time_diff
         return now_date
 
+    @classmethod
+    def truth_time(klass):
+        return genuine_datetime.now()
 
     @classmethod
     def set_pseudo_date(klass, pseudo_date=None):
@@ -27,9 +30,7 @@ class datetime(genuine_datetime):
         klass.__pseudo_date = pseudo_date
         klass.__setupdate = genuine_datetime.now()
 
-
     @classmethod
     def clear_pseudo_date(klass):
         klass.__pseudo_date = None
         klass.__setup_date = None
-
