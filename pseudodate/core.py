@@ -36,7 +36,15 @@ class datetime(genuine_datetime):
         now_date = datetime.truth_now()
         if datetime.__pseudo_date and datetime.__setup_date:
             time_diff = now_date - datetime.__setup_date
-            now_date = datetime.__pseudo_date + time_diff
+            sum_date = datetime.__pseudo_date + time_diff
+            now_date = datetime(
+                sum_date.year,
+                sum_date.month,
+                sum_date.day,
+                sum_date.hour,
+                sum_date.minute,
+                sum_date.second,
+                )
         return now_date
 
     @staticmethod
