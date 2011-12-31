@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 """
-this is core module of pseudodate.
+This is core module of pseudodate.
 """
 from datetime import datetime as genuine_datetime
 
@@ -31,10 +31,15 @@ class datetime(genuine_datetime):
     @staticmethod
     def now():
         """
-        This function provide specific pseude date
+        This function provide specific pseude date or genuine datetime
         """
         now_date = datetime.truth_now()
-        if datetime.__pseudo_date and datetime.__setup_date:
+        _pesudo_date = datetime.__pseudo_date
+        _setup_date = datetime.__setup_date
+
+        if isinstance(_pesudo_date, genuine_datetime) and \
+                isinstance(_setup_date, genuine_datetime):
+
             time_diff = now_date - datetime.__setup_date
             sum_date = datetime.__pseudo_date + time_diff
             now_date = datetime(
